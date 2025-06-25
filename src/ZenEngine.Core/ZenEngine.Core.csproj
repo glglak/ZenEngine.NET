@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    
+    <!-- Package Information -->
+    <PackageId>ZenEngine.Core</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>glglak</Authors>
+    <Company>ZenEngine.NET</Company>
+    <Product>ZenEngine.NET</Product>
+    <Description>A .NET Core 8 implementation of the GoRules Zen Engine - an Open-Source Business Rules Engine (BRE) that executes JSON Decision Models (JDM).</Description>
+    <PackageTags>business-rules;decision-engine;jdm;rules-engine;dotnet;csharp</PackageTags>
+    <PackageProjectUrl>https://github.com/glglak/ZenEngine.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/glglak/ZenEngine.NET</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Initial release of ZenEngine.NET - A cross-platform Business Rules Engine for .NET Core 8</PackageReleaseNotes>
+    
+    <!-- Build Configuration -->
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    
+    <!-- Assembly Information -->
+    <AssemblyTitle>ZenEngine.Core</AssemblyTitle>
+    <AssemblyDescription>Core library for ZenEngine.NET Business Rules Engine</AssemblyDescription>
+    <AssemblyCopyright>Copyright © 2025</AssemblyCopyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
