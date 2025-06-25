@@ -1,0 +1,87 @@
+{
+  "id": "pricing-decision",
+  "name": "Customer Pricing Decision",
+  "description": "Determines customer pricing and discounts based on age and premium status",
+  "nodes": {
+    "input1": {
+      "id": "input1",
+      "name": "Customer Input", 
+      "type": "inputNode",
+      "position": { "x": 100, "y": 100 }
+    },
+    "table1": {
+      "id": "table1",
+      "name": "Pricing Rules",
+      "type": "decisionTableNode",
+      "content": {
+        "hitPolicy": "first",
+        "inputs": [
+          {
+            "id": "age_check",
+            "name": "Age Check",
+            "type": "expression",
+            "field": "customer.age >= 18"
+          },
+          {
+            "id": "premium_check", 
+            "name": "Premium Status",
+            "type": "expression",
+            "field": "customer.isPremium"
+          },
+          {
+            "id": "loyalty_check",
+            "name": "Loyalty Years",
+            "type": "expression", 
+            "field": "customer.loyaltyYears > 2"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "discount",
+            "name": "Discount Percentage", 
+            "type": "expression",
+            "field": "discount"
+          },
+          {
+            "id": "category",
+            "name": "Customer Category",
+            "type": "expression",
+            "field": "category"
+          },
+          {
+            "id": "special_offers",
+            "name": "Special Offers",
+            "type": "expression",
+            "field": "specialOffers"
+          }
+        ],
+        "rules": [
+          [true, true, true, 0.25, "premium_loyal", ["free_shipping", "priority_support"]],
+          [true, true, false, 0.20, "premium", ["free_shipping"]],
+          [true, false, true, 0.15, "loyal", ["priority_support"]],
+          [true, false, false, 0.10, "standard", []],
+          [false, null, null, 0.05, "youth", ["student_discount"]]
+        ]
+      },
+      "position": { "x": 300, "y": 100 }
+    },
+    "output1": {
+      "id": "output1",
+      "name": "Pricing Output",
+      "type": "outputNode", 
+      "position": { "x": 500, "y": 100 }
+    }
+  },
+  "edges": [
+    {
+      "id": "edge1",
+      "sourceId": "input1",
+      "targetId": "table1"
+    },
+    {
+      "id": "edge2",
+      "sourceId": "table1", 
+      "targetId": "output1"
+    }
+  ]
+}

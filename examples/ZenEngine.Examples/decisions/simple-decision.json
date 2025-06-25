@@ -1,0 +1,43 @@
+{
+  "id": "simple-decision",
+  "name": "Simple Mathematical Decision",
+  "description": "A simple decision that doubles the input value",
+  "nodes": {
+    "input1": {
+      "id": "input1",
+      "name": "Input Node",
+      "type": "inputNode",
+      "position": { "x": 100, "y": 100 }
+    },
+    "expression1": {
+      "id": "expression1",
+      "name": "Double Value",
+      "type": "expressionNode",
+      "content": {
+        "expressions": {
+          "result": "input * 2",
+          "metadata.processedAt": "new Date().toISOString()"
+        }
+      },
+      "position": { "x": 300, "y": 100 }
+    },
+    "output1": {
+      "id": "output1", 
+      "name": "Output Node",
+      "type": "outputNode",
+      "position": { "x": 500, "y": 100 }
+    }
+  },
+  "edges": [
+    {
+      "id": "edge1",
+      "sourceId": "input1",
+      "targetId": "expression1"
+    },
+    {
+      "id": "edge2", 
+      "sourceId": "expression1",
+      "targetId": "output1"
+    }
+  ]
+}
